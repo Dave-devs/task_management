@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "430454950510",
+    "project_id": "push-notification-4e523",
+    "storage_bucket": "push-notification-4e523.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:430454950510:android:fb365bad72ba685ecff47f",
+        "android_client_info": {
+          "package_name": "com.dave_devs"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "430454950510-bgcqdpp3g8rvcic1lpql6nfffrlrsuf2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAA5l1Avg96rLswU71_NiWZ5TID4PYqZxg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "430454950510-bgcqdpp3g8rvcic1lpql6nfffrlrsuf2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:430454950510:android:dc6b6e5a12bc245ccff47f",
+        "android_client_info": {
+          "package_name": "com.davedevs.task_management"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "430454950510-bgcqdpp3g8rvcic1lpql6nfffrlrsuf2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAA5l1Avg96rLswU71_NiWZ5TID4PYqZxg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "430454950510-bgcqdpp3g8rvcic1lpql6nfffrlrsuf2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
