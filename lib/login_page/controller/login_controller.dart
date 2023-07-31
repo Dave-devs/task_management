@@ -54,25 +54,19 @@ class LoginController{
           }
         }
 
-        getDisplayName(String? displayName) {
+        void getDisplayName(String? displayName) {
           displayName = user!.displayName;
         }
-        getEmail(String? email) {
+        void getEmail(String? email) {
           email = user!.email;
         }
-        getPhotoUrl(String? photoUrl) {
+        void getPhotoUrl(String? photoUrl) {
           photoUrl = user!.photoURL;
         }
 
 
       } on FirebaseAuthException catch(e) {
-        if(e.code == 'user-not-found') {
-          showToast(message: 'No user found for the email');
-        } else if(e.code == 'wrong-password') {
-          showToast(message: 'Wrong password provided, check and try again!');
-        } else if(e.code == 'invalid-email') {
-          showToast(message: 'Wrong email provided');
-        }
+        showToast(message: e.message!);
       }
 
     } catch(e) {

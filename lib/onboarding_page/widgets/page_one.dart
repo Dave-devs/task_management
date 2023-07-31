@@ -5,33 +5,37 @@ import 'package:task_management/common/app_colors/app_colors.dart';
 import 'package:widget_circular_animator/widget_circular_animator.dart';
 
 class PageOne extends StatelessWidget {
+  const PageOne({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Container(
       alignment: Alignment.bottomCenter,
       child: Column(
         children: [
-          SizedBox(height: 170.h,),
+          SizedBox(height: 70.h,),
           Center(
               child: Padding(
                 padding: EdgeInsets.symmetric(horizontal: 30.w),
                 child: WidgetCircularAnimator(
-                  size: 250.w,
+                  size: 280.w,
                   innerIconsSize: 3,
                   outerIconsSize: 3,
                   innerAnimation: Curves.easeInOutBack,
                   outerAnimation: Curves.easeInOutBack,
-                  innerColor: Colors.deepPurple,
-                  outerColor: Colors.orangeAccent,
+                  innerColor: AppColors.kPC,
+                  outerColor: AppColors.kPAC,
                   innerAnimationSeconds: 10,
                   outerAnimationSeconds: 10,
                   child: Container(
-                    decoration: BoxDecoration(
-                        shape: BoxShape.circle, color: Colors.grey[200]),
+                    decoration: const BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: Colors.transparent
+                    ),
                     child: Icon(
-                      Icons.person_outline,
-                      color: Colors.deepOrange[200],
-                      size: 60,
+                      Icons.event_note_outlined,
+                      color: AppColors.kPC,
+                      size: 130,
                     ),
                   ),
                 )
@@ -42,29 +46,31 @@ class PageOne extends StatelessWidget {
           ),
           Column(
             children: [
-              Text(
-                '',
-                textAlign: TextAlign.center,
-                softWrap: true,
-                style: GoogleFonts.roboto(
-                    fontSize: 24.sp,
-                    fontWeight: FontWeight.w500,
-                    color: AppColors.kWhiteColor,
-                    letterSpacing: 0.01,
-                    wordSpacing: 0.1
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 40.w),
+                child: Text(
+                  'A convenient and productive task manager.',
+                  textAlign: TextAlign.center,
+                  softWrap: true,
+                  style: GoogleFonts.roboto(
+                      fontSize: 30.sp,
+                      fontWeight: FontWeight.w800,
+                      color: AppColors.kBlackColor
+                  ),
                 ),
               ),
-              SizedBox(height: 10.h,),
+              SizedBox(height: 20.h,),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 30.w),
                 child: Text(
-                  '',
+                  'Create task with a single click of a button and set time for each task based on your schedule.',
                   textAlign: TextAlign.center,
                   softWrap: true,
                   style: GoogleFonts.roboto(
                       fontSize: 12.sp,
-                      fontWeight: FontWeight.w500,
-                      color: AppColors.kWhiteColor),
+                      fontWeight: FontWeight.w400,
+                      color: AppColors.kBlackColor
+                  ),
                 ),
               ),
             ],

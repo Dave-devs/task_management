@@ -5,8 +5,8 @@ part 'onboarding_state.dart';
 class OnboardingBloc extends Bloc<OnboardingEvent, OnboardingState> {
   OnboardingBloc() : super(OnboardingState()) {
 
-    on<OnOnboardingEvent>((event, emit) {
-      emit(OnboardingState(pageIndex: event.pageIndex));
+    on<OnboardingEvent>((event, emit) {
+      emit(OnboardingState(pageIndex: state.pageIndex));
     });
   }
 }

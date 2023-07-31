@@ -24,4 +24,14 @@ class ConfirmPasswordEvent extends SignUpEvent{
   const ConfirmPasswordEvent(this.confirmPassword);
 }
 
+class PasswordVisibilityEvent extends SignUpEvent{
+  final bool toggleVisibility;
+  const PasswordVisibilityEvent(this.toggleVisibility);
+}
+
+class ConfirmVisibilityEvent extends SignUpEvent{
+  final bool toggleConfirmVisibility;
+  const ConfirmVisibilityEvent(this.toggleConfirmVisibility);
+}
+
 

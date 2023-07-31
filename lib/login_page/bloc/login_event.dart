@@ -13,3 +13,8 @@ class LoginPasswordEvent extends LoginEvent{
   final String password;
   const LoginPasswordEvent(this.password);
 }
+
+class OnTogglePasswordVisibilityEvent extends LoginEvent {
+  final bool passwordVisibility;
+  OnTogglePasswordVisibilityEvent(this.passwordVisibility);
+}

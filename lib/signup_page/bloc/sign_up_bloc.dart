@@ -9,6 +9,8 @@ class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
     on<EmailEvent>(emailEvent);
     on<PasswordEvent>(passwordEvent);
     on<ConfirmPasswordEvent>(confirmPasswordEvent);
+    on<PasswordVisibilityEvent>(passwordVisibilityEvent);
+    on<ConfirmVisibilityEvent>(confirmVisibilityEvent);
   }
 
   FutureOr<void> nameEvent(NameEvent event, Emitter<SignUpState> emit) {
@@ -25,5 +27,13 @@ class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
 
   FutureOr<void> confirmPasswordEvent(ConfirmPasswordEvent event, Emitter<SignUpState> emit) {
     emit(state.copyWith(confirmPassword: event.confirmPassword));
+  }
+
+  FutureOr<void> passwordVisibilityEvent(PasswordVisibilityEvent event, Emitter<SignUpState> emit) {
+    emit(state.copyWith(passwordVisibility: event.toggleVisibility));
+  }
+
+  FutureOr<void> confirmVisibilityEvent(ConfirmVisibilityEvent event, Emitter<SignUpState> emit) {
+    emit(state.copyWith(confirmPassVisibility: event.toggleConfirmVisibility));
   }
 }

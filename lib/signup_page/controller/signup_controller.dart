@@ -57,26 +57,20 @@ class SignUpController{
 
         var user = credential.user;
 
-        getEmail(String? email) {
+        void getEmail(String? email) {
           email = user?.email;
         }
-        getPhoto(String? photo) {
+        void getPhoto(String? photo) {
           photo = user?.photoURL;
         }
-        getName(String? name) {
+        void getName(String? name) {
           name = user?.displayName;
         }
 
         showToast(message: 'Email Verification has been sent.');
 
       } on FirebaseAuthException catch(e) {
-        if(e.code == 'email-already-in-use') {
-          showToast(message: 'User already exist');
-        } else if(e.code == 'invalid-email') {
-          showToast(message: 'Invalid email supply');
-        } else if(e.code == 'weak-password') {
-          showToast(message: 'Password is too weak');
-        }
+        showToast(message: e.message!);
       }
 
     } catch(e) {
