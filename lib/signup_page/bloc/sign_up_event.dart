@@ -1,37 +1,30 @@
 part of 'sign_up_bloc.dart';
 
 abstract class SignUpEvent {
+
   const SignUpEvent();
 }
 
-class NameEvent extends SignUpEvent{
-  final String name;
-  const NameEvent(this.name);
+class UsernameEvent extends SignUpEvent {
+  final String username;
+
+  const UsernameEvent(this.username);
 }
 
-class EmailEvent extends SignUpEvent{
+class EmailEvent extends SignUpEvent {
   final String email;
+
   const EmailEvent(this.email);
 }
 
-class PasswordEvent extends SignUpEvent{
+class PasswordEvent extends SignUpEvent {
   final String password;
+
   const PasswordEvent(this.password);
 }
 
-class ConfirmPasswordEvent extends SignUpEvent{
+class ConfirmPasswordEvent extends SignUpEvent {
   final String confirmPassword;
+
   const ConfirmPasswordEvent(this.confirmPassword);
 }
-
-class PasswordVisibilityEvent extends SignUpEvent{
-  final bool toggleVisibility;
-  const PasswordVisibilityEvent(this.toggleVisibility);
-}
-
-class ConfirmVisibilityEvent extends SignUpEvent{
-  final bool toggleConfirmVisibility;
-  const ConfirmVisibilityEvent(this.toggleConfirmVisibility);
-}
-
-

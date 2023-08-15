@@ -5,6 +5,7 @@ import 'package:task_management/common/widgets/reusable_text.dart';
 import '../../common/app_colors/app_colors.dart';
 import '../../common/app_const/app_constant.dart';
 import '../../common/widgets/custoom_button.dart';
+import '../../common/widgets/pick_assets_tile.dart';
 import '../widgets/status_widget.dart';
 
 class AddEditNotePage extends StatefulWidget {
@@ -17,13 +18,15 @@ class AddEditNotePage extends StatefulWidget {
 class _AddEditNotePageState extends State<AddEditNotePage> {
   final TextEditingController _noteTitle = TextEditingController();
   final TextEditingController _noteContent = TextEditingController();
-  final TextEditingController setNoteDate = TextEditingController();
+  final TextEditingController _setNoteDate = TextEditingController();
+  final TextEditingController _setNotStartTime = TextEditingController();
+  final TextEditingController _setNoteEndTime = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.kBGC,
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
+        backgroundColor: AppColors.kBGC,
         automaticallyImplyLeading: true
       ),
       body: ListView(
@@ -118,11 +121,11 @@ class _AddEditNotePageState extends State<AddEditNotePage> {
           ReusableTextField(
             w: 300.w,
             h: 50.h,
-            controller: setNoteDate,
+            controller: _setNoteDate,
             onChanged: (value) {
 
             },
-            hintText: '15 September - 16 September',
+            hintText: '6:45 PM',
             hintStyle: appStyle(14, FontWeight.w300, AppColors.kBlackColor),
             obscureText: false,
             autocorrect: false,
@@ -131,6 +134,93 @@ class _AddEditNotePageState extends State<AddEditNotePage> {
             style: appStyle(16, FontWeight.normal, AppColors.kBlackColor),
             minLines: 1,
             maxLines: 1,
+          ),
+
+          SizedBox(height: 20.h,),
+
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              ReusableTextField(
+                w: 160.w,
+                h: 50.h,
+                controller: _setNotStartTime,
+                onChanged: (value) {
+
+                },
+                hintText: 'Start Time',
+                hintStyle: appStyle(14, FontWeight.w300, AppColors.kBlackColor),
+                obscureText: false,
+                autocorrect: false,
+                expands: false,
+                keyboardType: TextInputType.text,
+                style: appStyle(16, FontWeight.normal, AppColors.kBlackColor),
+                minLines: 1,
+                maxLines: 1,
+              ),
+
+              ReusableTextField(
+                w: 160.w,
+                h: 50.h,
+                controller: _setNoteEndTime,
+                onChanged: (value) {
+
+                },
+                hintText: 'End Time',
+                hintStyle: appStyle(14, FontWeight.w300, AppColors.kBlackColor),
+                obscureText: false,
+                autocorrect: false,
+                expands: false,
+                keyboardType: TextInputType.text,
+                style: appStyle(16, FontWeight.normal, AppColors.kBlackColor),
+                minLines: 1,
+                maxLines: 1,
+              ),
+            ],
+          ),
+
+          SizedBox(height: 20.h,),
+
+          Container(
+            padding: EdgeInsets.symmetric(vertical: 10.h),
+            decoration: BoxDecoration(
+                color: AppColors.kPAC.withOpacity(0.08),
+                borderRadius: BorderRadius.circular(AppConst.kR)
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+
+                //Pick Image
+                PickAltAssets(
+                  onSelect: () {
+
+                  },
+                  icon: Icons.photo_camera_outlined,
+                  text: 'Albums',
+
+                ),
+                //Pick Record Audio
+                PickAltAssets(
+                  onSelect: () {
+
+                  },
+                  icon: Icons.photo_camera_outlined,
+                  text: 'Audio',
+
+                ),
+                //Set Reminder
+                PickAltAssets(
+                  onSelect: () {
+
+                  },
+                  icon: Icons.photo_camera_outlined,
+                  text: 'Reminder',
+
+                ),
+              ],
+            ),
           ),
 
           SizedBox(height: 20.h,),
@@ -196,6 +286,8 @@ class _AddEditNotePageState extends State<AddEditNotePage> {
             color: AppColors.kPC,
             style: appStyle(18, FontWeight.w400, AppColors.kWhiteColor),
           ),
+
+          SizedBox(height: 20.h,),
         ],
       )
     );

@@ -1,39 +1,33 @@
 import 'dart:async';
 import 'package:bloc/bloc.dart';
+import 'package:equatable/equatable.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/foundation.dart';
+import 'package:task_management/common/utils/toast.dart';
+import '../../auth_repository/auth_repository.dart';
 part 'sign_up_event.dart';
 part 'sign_up_state.dart';
 
 class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
   SignUpBloc() : super(const SignUpState()) {
-    on<NameEvent>(nameEvent);
-    on<EmailEvent>(emailEvent);
-    on<PasswordEvent>(passwordEvent);
-    on<ConfirmPasswordEvent>(confirmPasswordEvent);
-    on<PasswordVisibilityEvent>(passwordVisibilityEvent);
-    on<ConfirmVisibilityEvent>(confirmVisibilityEvent);
+
+    on<UsernameEvent>(_usernameEvent);
+    on<EmailEvent>(_emailEvent);
+    on<PasswordEvent>(_passwordEvent);
+    on<ConfirmPasswordEvent>(_confirmPasswordEvent);
   }
 
-  FutureOr<void> nameEvent(NameEvent event, Emitter<SignUpState> emit) {
-    emit(state.copyWith(name: event.name));
+  //Handlers
+  void _usernameEvent(UsernameEvent event, Emitter<SignUpState> emit) {
+    emit(state.copyWith(userName: event.username));
   }
-
-  FutureOr<void> emailEvent(EmailEvent event, Emitter<SignUpState> emit) {
+  void _emailEvent(EmailEvent event, Emitter<SignUpState> emit) {
     emit(state.copyWith(email: event.email));
   }
-
-  FutureOr<void> passwordEvent(PasswordEvent event, Emitter<SignUpState> emit) {
+  void _passwordEvent(PasswordEvent event, Emitter<SignUpState> emit) {
     emit(state.copyWith(password: event.password));
   }
-
-  FutureOr<void> confirmPasswordEvent(ConfirmPasswordEvent event, Emitter<SignUpState> emit) {
+  void _confirmPasswordEvent(ConfirmPasswordEvent event, Emitter<SignUpState> emit) {
     emit(state.copyWith(confirmPassword: event.confirmPassword));
-  }
-
-  FutureOr<void> passwordVisibilityEvent(PasswordVisibilityEvent event, Emitter<SignUpState> emit) {
-    emit(state.copyWith(passwordVisibility: event.toggleVisibility));
-  }
-
-  FutureOr<void> confirmVisibilityEvent(ConfirmVisibilityEvent event, Emitter<SignUpState> emit) {
-    emit(state.copyWith(confirmPassVisibility: event.toggleConfirmVisibility));
   }
 }

@@ -1,39 +1,19 @@
 part of 'sign_up_bloc.dart';
 
 class SignUpState {
-  final String name;
+  final String userName;
   final String email;
   final String password;
   final String confirmPassword;
-  final bool passwordVisibility;
-  final bool confirmPassVisibility;
 
-  const SignUpState({
-    this.name= '',
-    this.email = '',
-    this.password = '',
-    this.confirmPassword = '',
-    this.passwordVisibility = false,
-    this.confirmPassVisibility = false,
-  });
+  const SignUpState({ this.userName = "", this.email = "", this.password = "", this.confirmPassword = "" });
 
-  SignUpState copyWith({
-    final String? name,
-    final String? email,
-    final String? password,
-    final String? confirmPassword,
-    final bool? passwordVisibility,
-    final bool? confirmPassVisibility,
-  }) {
+  SignUpState copyWith({ String? userName,  String? email, String? password, String? confirmPassword }) {
     return SignUpState(
-      name: name ?? this.name,
-      email: email ?? this.email,
-      password: password ?? this.password,
-      confirmPassword: confirmPassword ?? this.confirmPassword,
-      passwordVisibility: passwordVisibility ?? this.passwordVisibility,
-      confirmPassVisibility: confirmPassVisibility ?? this.confirmPassVisibility,
+        userName: userName ?? this.userName,
+        email: email ?? this.email,
+        password: password ?? this.password,
+        confirmPassword: confirmPassword ?? this.confirmPassword
     );
   }
 }
-
-

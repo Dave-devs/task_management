@@ -1,73 +1,84 @@
-class Note{
+// To parse this JSON data, do
+//
+//     final note = noteFromJson(jsonString);
+
+import 'dart:convert';
+
+Note noteFromJson(String str) => Note.fromJson(json.decode(str));
+
+String noteToJson(Note data) => json.encode(data.toJson());
+
+class Note {
   int? id;
   String? title;
-  String? content;
-  bool inProgress;
-  bool isDone;
-  DateTime? date;
-  DateTime? startTime;
-  DateTime? endTime;
-  DateTime? reminder;
+  String? description;
+  String? date;
+  String? startTime;
+  String? endTime;
+  int? inProgress;
+  int? isCompleted;
+  int? reminder;
+  String? repeat;
   String? picturePath;
   String? audioPath;
 
   Note({
     this.id,
     this.title,
-    this.content,
-    this.inProgress = false,
-    this.isDone = false,
+    this.description,
     this.date,
     this.startTime,
     this.endTime,
+    this.inProgress,
+    this.isCompleted,
     this.reminder,
+    this.repeat,
     this.picturePath,
     this.audioPath,
   });
 
-  factory Note.fromMap(Map<String, dynamic> map) {
-    return Note(
-      id: map["id"],
-      title: map["title"],
-      content: map["content"],
-      inProgress: map["inProgress"] == 1,
-      isDone: map["isDone"] == 1,
-      date: map["date"] != null ? DateTime.fromMillisecondsSinceEpoch(map["date"]) : null,
-      startTime: map["startTime"] != null ? DateTime.fromMillisecondsSinceEpoch(map["startTime"]) : null,
-      endTime: map["endTime"] != null ? DateTime.fromMillisecondsSinceEpoch(map["endTime"]) : null,
-      reminder: map["reminder"] != null ? DateTime.fromMillisecondsSinceEpoch(map["reminder"]) : null,
-      picturePath: map["picturePath"],
-      audioPath: map["audioPath"],
-    );
-  }
+  factory Note.fromJson(Map<String, dynamic> json) => Note(
+    id: json["id"],
+    title: json["title"],
+    description: json["description"],
+    date: json["date"],
+    startTime: json["startTime"],
+    endTime: json["endTime"],
+    inProgress: json["inProgress"],
+    isCompleted: json["isCompleted"],
+    reminder: json["reminder"],
+    repeat: json["repeat"],
+    picturePath: json["picturePath"],
+    audioPath: json["audioPath"],
+  );
 
-  Map<String, dynamic> toMap() {
-    return {
-      "id": id,
-      "title": title,
-      "content": content,
-      "inProgress": inProgress? 1 : 0,
-      "isDone": isDone? 1 : 0,
-      "date": date?.millisecondsSinceEpoch,
-      "startTime": startTime?.millisecondsSinceEpoch,
-      "endTime": endTime?.millisecondsSinceEpoch,
-      "reminder": reminder?.millisecondsSinceEpoch,
-      "picturePath": picturePath,
-      "audioPath": audioPath,
-    };
-  }
+  Map<String, dynamic> toJson() => {
+    "id": id,
+    "title": title,
+    "description": description,
+    "date": date,
+    "startTime": startTime,
+    "endTime": endTime,
+    "inProgress": inProgress,
+    "isCompleted": isCompleted,
+    "reminder": reminder,
+    "repeat": repeat,
+    "picturePath": picturePath,
+    "audioPath": audioPath,
+  };
 }
 
-//Note
+
+// Note
 // {
 //   "id": 0,
 //   "title": "",
-//   "content": "",
-//   "inProgress": "",
-//   "isCompleted": 0,
+//   "description": "",
 //   "date": ""
 //   "startTime": ""
 //   "endTime": ""
+//   "inProgress": 0,
+//   "isCompleted": 0,
 //   "reminder": 0,
 //   "repeat": "",
 //   "picturePath": "",

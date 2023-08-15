@@ -5,6 +5,7 @@ import 'package:task_management/common/widgets/reusable_text.dart';
 import '../../common/app_colors/app_colors.dart';
 import '../../common/app_const/app_constant.dart';
 import '../../common/widgets/custoom_button.dart';
+import '../../common/widgets/pick_assets_tile.dart';
 import '../widgets/status_widget.dart';
 
 class AddEditTodoPage extends StatefulWidget {
@@ -15,9 +16,10 @@ class AddEditTodoPage extends StatefulWidget {
 }
 
 class _AddEditTodoPageState extends State<AddEditTodoPage> {
-  final TextEditingController _noteTitle = TextEditingController();
-  final TextEditingController _noteContent = TextEditingController();
-  final TextEditingController setNoteDate = TextEditingController();
+  final TextEditingController _todoContent = TextEditingController();
+  final TextEditingController _setTodoDate = TextEditingController();
+  final TextEditingController _setStartTime = TextEditingController();
+  final TextEditingController _setEndTime = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -60,7 +62,7 @@ class _AddEditTodoPageState extends State<AddEditTodoPage> {
           ReusableTextField(
             w: 300.w,
             h: 120.h,
-            controller: _noteContent,
+            controller: _todoContent,
             onChanged: (value) {
 
             },
@@ -88,7 +90,7 @@ class _AddEditTodoPageState extends State<AddEditTodoPage> {
           ReusableTextField(
             w: 300.w,
             h: 50.h,
-            controller: setNoteDate,
+            controller: _setTodoDate,
             onChanged: (value) {
 
             },
@@ -101,6 +103,93 @@ class _AddEditTodoPageState extends State<AddEditTodoPage> {
             style: appStyle(16, FontWeight.normal, AppColors.kBlackColor),
             minLines: 1,
             maxLines: 1,
+          ),
+
+          SizedBox(height: 20.h,),
+
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              ReusableTextField(
+                w: 160.w,
+                h: 50.h,
+                controller: _setStartTime,
+                onChanged: (value) {
+
+                },
+                hintText: 'Start Time',
+                hintStyle: appStyle(14, FontWeight.w300, AppColors.kBlackColor),
+                obscureText: false,
+                autocorrect: false,
+                expands: false,
+                keyboardType: TextInputType.text,
+                style: appStyle(16, FontWeight.normal, AppColors.kBlackColor),
+                minLines: 1,
+                maxLines: 1,
+              ),
+
+              ReusableTextField(
+                w: 160.w,
+                h: 50.h,
+                controller: _setEndTime,
+                onChanged: (value) {
+
+                },
+                hintText: 'End Time',
+                hintStyle: appStyle(14, FontWeight.w300, AppColors.kBlackColor),
+                obscureText: false,
+                autocorrect: false,
+                expands: false,
+                keyboardType: TextInputType.text,
+                style: appStyle(16, FontWeight.normal, AppColors.kBlackColor),
+                minLines: 1,
+                maxLines: 1,
+              ),
+            ],
+          ),
+
+          SizedBox(height: 20.h,),
+
+          Container(
+            padding: EdgeInsets.symmetric(vertical: 10.h),
+            decoration: BoxDecoration(
+                color: AppColors.kPAC.withOpacity(0.08),
+                borderRadius: BorderRadius.circular(AppConst.kR)
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+
+                //Pick Image
+                PickAltAssets(
+                  onSelect: () {
+
+                  },
+                  icon: Icons.photo_camera_outlined,
+                  text: 'Albums',
+
+                ),
+                //Pick Record Audio
+                PickAltAssets(
+                  onSelect: () {
+
+                  },
+                  icon: Icons.photo_camera_outlined,
+                  text: 'Audio',
+
+                ),
+                //Set Reminder
+                PickAltAssets(
+                  onSelect: () {
+
+                  },
+                  icon: Icons.photo_camera_outlined,
+                  text: 'Reminder',
+
+                ),
+              ],
+            ),
           ),
 
           SizedBox(height: 20.h,),
@@ -153,7 +242,7 @@ class _AddEditTodoPageState extends State<AddEditTodoPage> {
             ],
           ),
 
-          SizedBox(height: 175.h,),
+          SizedBox(height: 60.h,),
 
           ReusableButton(
             w: 360.w,
